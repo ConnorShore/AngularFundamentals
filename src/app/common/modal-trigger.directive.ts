@@ -1,4 +1,4 @@
-import { Directive, OnInit, Inject, ElementRef } from "@angular/core";
+import { Directive, OnInit, Inject, ElementRef, Input } from "@angular/core";
 import { JQ_TOKEN } from './jQuery.service';
 
 
@@ -8,6 +8,7 @@ import { JQ_TOKEN } from './jQuery.service';
 export class ModalTriggerDirective implements OnInit {  
 
     private el: HTMLElement;
+    @Input('modal-trigger') modalId: string;    //get the input value of modal-trigger and assign it to modalId
 
     constructor(@Inject(JQ_TOKEN) private $: any, elRef: ElementRef) {
         this.el = elRef.nativeElement;
@@ -15,7 +16,7 @@ export class ModalTriggerDirective implements OnInit {
 
     ngOnInit() {
         this.el.addEventListener('click', e => {
-            this.$('#simple-modal').modal({});
+            this.$('#' + this.modalId).modal({});
         })
     }
 }
