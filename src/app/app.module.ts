@@ -8,14 +8,14 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
   UpvoteComponent,
   VoterService,
-  LocationValidator
+  LocationValidator,
+  EventResolver
 } from './events/index'
 
 import { 
@@ -33,6 +33,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -42,7 +43,8 @@ let jQuery = window['$'];
 		BrowserModule,
 		FormsModule,
 		ReactiveFormsModule,
-		RouterModule.forRoot(appRoutes)
+		RouterModule.forRoot(appRoutes),
+		HttpClientModule
 	],
 	declarations: [
 		EventsAppComponent,
@@ -59,11 +61,11 @@ let jQuery = window['$'];
 		ModalTriggerDirective,
 		UpvoteComponent,
 		DurationPipe,
-		LocationValidator
+		LocationValidator,
 	],
 	providers: [
 		EventService,
-		EventRouteActivator,
+		EventResolver,
 		EventListResolver,
 		AuthService,
 		VoterService,
