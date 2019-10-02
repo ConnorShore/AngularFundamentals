@@ -20,8 +20,8 @@ export class EventService {
 	}
 
 	saveEvent(event: IEvent): Observable<IEvent> {
-        //this will create a new event if the event hasn't been created and will update the exising event if it has been created
-		let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+		// this will create a new event if the event hasn't been created and will update the exising event if it has been created
+		const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 		return this.http.post<IEvent>('/api/events', event, options)
 			.pipe(catchError(this.handleError<IEvent>('saveEvents')));
 	}
@@ -31,10 +31,10 @@ export class EventService {
 			.pipe(catchError(this.handleError<ISession[]>('searchSessions')));
 	}
 
-	private handleError<T> (operation = 'operation', result?: T) {
+	private handleError<T>(operation = 'operation', result?: T) {
 		return (error: any): Observable<T> => {
 			console.error(error);
 			return of(result as T);
-		}
+		};
 	}
 }

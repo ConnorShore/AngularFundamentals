@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core'
-import { IEvent } from './shared/event.model'
+import { Component, Input } from '@angular/core';
+import { IEvent } from './shared/event.model';
 
 @Component({
-    selector: 'event-thumbnail',
-    template: `
+	selector: 'event-thumbnail',
+	template: `
         <div class="well hoverwell thumbnail" [routerLink]="['/events', event.id]">
             <h2>{{event?.name | uppercase}}</h2>
             <div>Date: {{event?.date | date:'shortDate'}}</div>
@@ -23,13 +23,13 @@ import { IEvent } from './shared/event.model'
             </div>
         </div>
     `,
-    styles: [`
+	styles: [`
         .thumbnail {
             min-height: 210px;
         }
 
-        .pad-left { 
-            margin-left: 10px; 
+        .pad-left {
+            margin-left: 10px;
         }
 
         .well div {
@@ -39,12 +39,12 @@ import { IEvent } from './shared/event.model'
 })
 
 export class EventThumbnailComponent {
-    @Input() event: IEvent;    //Input says that event will be brought in from another component
+	@Input() event: IEvent;    // Input says that event will be brought in from another component
 
-    getStartTimeStyle(): any {
-        if(this.event && this.event.time === '8:00 am') {
-            return {color: '#00aa00', 'font-weight': 'bold'}
-        }
-        return {}
-    }
+	getStartTimeStyle(): any {
+		if (this.event && this.event.time === '8:00 am') {
+			return {color: '#00aa00', 'font-weight': 'bold'};
+		}
+		return {};
+	}
 }

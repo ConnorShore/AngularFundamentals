@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { 
+import {
   EventsListComponent,
   EventThumbnailComponent,
   EventService,
@@ -16,13 +16,13 @@ import {
   VoterService,
   LocationValidator,
   EventResolver
-} from './events/index'
+} from './events/index';
 
-import { 
-	TOASTR_TOKEN, 
-	Toastr, 
-	JQ_TOKEN, 
-	CollapsibleWellComponent, 
+import {
+	TOASTR_TOKEN,
+	Toastr,
+	JQ_TOKEN,
+	CollapsibleWellComponent,
 	SimpleModalComponent,
 	ModalTriggerDirective
 } from './common/index';
@@ -35,8 +35,8 @@ import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
 	imports: [
@@ -79,8 +79,8 @@ let jQuery = window['$'];
 export class AppModule {}
 
 export function checkDirtyState(comp: CreateEventComponent) {
-	if(comp.isDirty) {
-		return window.confirm('You have not saved this event, do you really want to cancel?')
+	if (comp.isDirty) {
+		return window.confirm('You have not saved this event, do you really want to cancel?');
 	}
 
 	return true;
