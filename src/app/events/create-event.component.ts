@@ -20,6 +20,7 @@ import { IEvent, EventService } from './shared';
 })
 export class CreateEventComponent {
 	isDirty = true;
+	newEvent: IEvent;
 
 	constructor(private router: Router, private eventService: EventService) { }
 
